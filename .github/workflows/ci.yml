@@ -3,23 +3,24 @@ name: ci
 on:
  push:
     branches: [ "main" ]
- pull_request:
+  pull_request:
     branches: [ "main" ]
- 
 
- workflow_dispatch:
-
+      workflow_dispatch:
 
 jobs:
-build:
-  runs-on: ubuntu-latest
-  steps:
-    - uses: actions/checkout@v4
-    - name: Tun a singl line script
-      run: echo "Hello, World!"
+  tests:
+    name: Tests
+    runs-on: ubuntu-latest
 
-    - name: Run a multi-line script
-      run: |
-      echo: Add otehr asctions
-      echo: to build and deploy your projects
-      
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v4
+
+      - name: Set up Go
+        uses: actions/setup-go@v5
+        with:
+          go-version: "1.25.1"
+
+      - name: echo Go version
+        run: go version
