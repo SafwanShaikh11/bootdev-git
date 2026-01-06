@@ -20,6 +20,6 @@ build:
 
     - name: Run a multi-line script
       run: |
-      echo Add otehr asctions
-      echo to build and deploy your projects
+      echo: Add otehr asctions
+      echo: to build and deploy your projects
       
